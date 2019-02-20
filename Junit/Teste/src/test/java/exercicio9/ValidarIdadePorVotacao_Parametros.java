@@ -1,4 +1,4 @@
-package exercicio8;
+package exercicio9;
 
 import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
@@ -6,23 +6,19 @@ import java.util.Collection;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 import votacao.Votacao;
 
 @RunWith(Parameterized.class)
-public class ValidarIdadePorVotacao_DDT {
-	public String nome;
-	public int anoDeNascimento;
-	public String resultado;
+public class ValidarIdadePorVotacao_Parametros {
 
-	public ValidarIdadePorVotacao_DDT(String $nome, int $anoDeNascimento, String $resultado) {
-		this.nome = $nome;
-		this.anoDeNascimento = $anoDeNascimento;
-		this.resultado = $resultado;
-	}
+	@Parameter(0) public String nome;
+	@Parameter(1) public int anoDeNascimento;
+	@Parameter(2) public String resultado;
 
 	@Test
-	public void validarObrigatoriedadeDeVoto() {
+	public void validarObrigatoriedaDeDeVoto() {
 		assertEquals(resultado, Votacao.podeVotar(nome, anoDeNascimento));
 	}
 	
@@ -38,5 +34,4 @@ public class ValidarIdadePorVotacao_DDT {
 			{"Pedro", 1947, "Pedro seu voto e facultativo"}
 		});
 	}
-
 }
